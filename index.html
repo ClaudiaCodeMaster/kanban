@@ -19,12 +19,132 @@
             color: #fff;
         }
         
+        /* PIN Screen */
+        .pin-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .pin-screen.hidden {
+            display: none;
+        }
+        
+        .pin-container {
+            text-align: center;
+        }
+        
+        .pin-logo {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        .pin-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #94a3b8;
+        }
+        
+        .pin-dots {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .pin-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid #4f46e5;
+            transition: all 0.2s;
+        }
+        
+        .pin-dot.filled {
+            background: #4f46e5;
+        }
+        
+        .pin-dot.error {
+            border-color: #ef4444;
+            background: #ef4444;
+            animation: shake 0.5s;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        .pin-keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 70px);
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .pin-key {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pin-key:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .pin-key:active {
+            transform: scale(0.95);
+        }
+        
+        .pin-key.empty {
+            visibility: hidden;
+        }
+        
+        .pin-key.backspace {
+            font-size: 20px;
+        }
+        
+        .pin-error-msg {
+            color: #ef4444;
+            margin-top: 20px;
+            height: 20px;
+        }
+        
+        /* Main App (hidden until PIN entered) */
+        .app {
+            display: none;
+        }
+        
+        .app.visible {
+            display: block;
+        }
+        
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
             padding: 0 10px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         h1 {
@@ -36,6 +156,7 @@
         .header-actions {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
         
         .btn {
@@ -224,6 +345,7 @@
             max-width: 500px;
             max-height: 90vh;
             overflow-y: auto;
+            margin: 20px;
         }
         
         .modal h2 {
@@ -288,6 +410,7 @@
             gap: 10px;
             margin-bottom: 20px;
             flex-wrap: wrap;
+            padding: 0 10px;
         }
         
         .filter-tag {
@@ -308,119 +431,248 @@
             background: #4f46e5;
             border-color: #4f46e5;
         }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            .column {
+                min-width: 280px;
+            }
+            
+            .pin-key {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            .pin-keypad {
+                grid-template-columns: repeat(3, 60px);
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>🗂️ Project Kanban</h1>
-        <div class="header-actions">
-            <button class="btn btn-secondary" onclick="exportData()">📤 Export</button>
-            <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">📥 Import</button>
-            <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
-            <button class="btn btn-primary" onclick="openModal()">+ Add Task</button>
-        </div>
-    </header>
-    
-    <div class="filters" id="filters">
-        <span class="filter-tag active" data-project="all">All Projects</span>
-    </div>
-    
-    <div class="board">
-        <div class="column" data-status="backlog">
-            <div class="column-header">
-                <span>📋 Backlog</span>
-                <span class="count" id="count-backlog">0</span>
+    <!-- PIN Screen -->
+    <div class="pin-screen" id="pinScreen">
+        <div class="pin-container">
+            <div class="pin-logo">🔐</div>
+            <div class="pin-title">Enter PIN</div>
+            <div class="pin-dots">
+                <div class="pin-dot" data-index="0"></div>
+                <div class="pin-dot" data-index="1"></div>
+                <div class="pin-dot" data-index="2"></div>
+                <div class="pin-dot" data-index="3"></div>
             </div>
-            <div class="column-content" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'backlog')" ondragleave="handleDragLeave(event)"></div>
-        </div>
-        
-        <div class="column" data-status="in-progress">
-            <div class="column-header">
-                <span>🔄 In Progress</span>
-                <span class="count" id="count-in-progress">0</span>
+            <div class="pin-keypad">
+                <button class="pin-key" onclick="addDigit('1')">1</button>
+                <button class="pin-key" onclick="addDigit('2')">2</button>
+                <button class="pin-key" onclick="addDigit('3')">3</button>
+                <button class="pin-key" onclick="addDigit('4')">4</button>
+                <button class="pin-key" onclick="addDigit('5')">5</button>
+                <button class="pin-key" onclick="addDigit('6')">6</button>
+                <button class="pin-key" onclick="addDigit('7')">7</button>
+                <button class="pin-key" onclick="addDigit('8')">8</button>
+                <button class="pin-key" onclick="addDigit('9')">9</button>
+                <button class="pin-key empty"></button>
+                <button class="pin-key" onclick="addDigit('0')">0</button>
+                <button class="pin-key backspace" onclick="removeDigit()">⌫</button>
             </div>
-            <div class="column-content" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'in-progress')" ondragleave="handleDragLeave(event)"></div>
-        </div>
-        
-        <div class="column" data-status="blocked">
-            <div class="column-header">
-                <span>🚫 Blocked</span>
-                <span class="count" id="count-blocked">0</span>
-            </div>
-            <div class="column-content" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'blocked')" ondragleave="handleDragLeave(event)"></div>
-        </div>
-        
-        <div class="column" data-status="done">
-            <div class="column-header">
-                <span>✅ Done</span>
-                <span class="count" id="count-done">0</span>
-            </div>
-            <div class="column-content" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'done')" ondragleave="handleDragLeave(event)"></div>
+            <div class="pin-error-msg" id="pinError"></div>
         </div>
     </div>
     
-    <!-- Modal -->
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-        <div class="modal" onclick="event.stopPropagation()">
-            <h2 id="modalTitle">Add Task</h2>
-            <form id="taskForm" onsubmit="saveTask(event)">
-                <input type="hidden" id="taskId">
-                
-                <div class="form-group">
-                    <label for="taskTitle">Title *</label>
-                    <input type="text" id="taskTitle" required>
+    <!-- Main App -->
+    <div class="app" id="app">
+        <header>
+            <h1>🗂️ Project Kanban</h1>
+            <div class="header-actions">
+                <button class="btn btn-secondary" onclick="exportData()">📤 Export</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">📥 Import</button>
+                <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+                <button class="btn btn-secondary" onclick="lockApp()">🔒 Lock</button>
+                <button class="btn btn-primary" onclick="openModal()">+ Add Task</button>
+            </div>
+        </header>
+        
+        <div class="filters" id="filters">
+            <span class="filter-tag active" data-project="all">All Projects</span>
+        </div>
+        
+        <div class="board">
+            <div class="column" data-status="backlog">
+                <div class="column-header">
+                    <span>📋 Backlog</span>
+                    <span class="count" id="count-backlog">0</span>
                 </div>
-                
-                <div class="form-group">
-                    <label for="taskProject">Project</label>
-                    <input type="text" id="taskProject" placeholder="e.g., Home Assistant, Discord Bot">
+                <div class="column-content" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'backlog')" ondragleave="handleDragLeave(event)"></div>
+            </div>
+            
+            <div class="column" data-status="in-progress">
+                <div class="column-header">
+                    <span>🔄 In Progress</span>
+                    <span class="count" id="count-in-progress">0</span>
                 </div>
-                
-                <div class="form-group">
-                    <label for="taskDescription">Description</label>
-                    <textarea id="taskDescription" placeholder="Details about this task..."></textarea>
+                <div class="column-content" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'in-progress')" ondragleave="handleDragLeave(event)"></div>
+            </div>
+            
+            <div class="column" data-status="blocked">
+                <div class="column-header">
+                    <span>🚫 Blocked</span>
+                    <span class="count" id="count-blocked">0</span>
                 </div>
-                
-                <div class="form-group">
-                    <label for="taskPriority">Priority</label>
-                    <select id="taskPriority">
-                        <option value="low">🟢 Low</option>
-                        <option value="medium" selected>🟡 Medium</option>
-                        <option value="high">🔴 High</option>
-                    </select>
+                <div class="column-content" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'blocked')" ondragleave="handleDragLeave(event)"></div>
+            </div>
+            
+            <div class="column" data-status="done">
+                <div class="column-header">
+                    <span>✅ Done</span>
+                    <span class="count" id="count-done">0</span>
                 </div>
-                
-                <div class="form-group">
-                    <label for="taskStatus">Status</label>
-                    <select id="taskStatus">
-                        <option value="backlog">📋 Backlog</option>
-                        <option value="in-progress">🔄 In Progress</option>
-                        <option value="blocked">🚫 Blocked</option>
-                        <option value="done">✅ Done</option>
-                    </select>
-                </div>
-                
-                <div class="modal-actions">
-                    <button type="button" class="btn btn-danger" id="deleteBtn" style="display:none" onclick="deleteTask()">Delete</button>
-                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-            </form>
+                <div class="column-content" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'done')" ondragleave="handleDragLeave(event)"></div>
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+            <div class="modal" onclick="event.stopPropagation()">
+                <h2 id="modalTitle">Add Task</h2>
+                <form id="taskForm" onsubmit="saveTask(event)">
+                    <input type="hidden" id="taskId">
+                    
+                    <div class="form-group">
+                        <label for="taskTitle">Title *</label>
+                        <input type="text" id="taskTitle" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskProject">Project</label>
+                        <input type="text" id="taskProject" placeholder="e.g., Home Assistant, Discord Bot">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskDescription">Description</label>
+                        <textarea id="taskDescription" placeholder="Details about this task..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskPriority">Priority</label>
+                        <select id="taskPriority">
+                            <option value="low">🟢 Low</option>
+                            <option value="medium" selected>🟡 Medium</option>
+                            <option value="high">🔴 High</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskStatus">Status</label>
+                        <select id="taskStatus">
+                            <option value="backlog">📋 Backlog</option>
+                            <option value="in-progress">🔄 In Progress</option>
+                            <option value="blocked">🚫 Blocked</option>
+                            <option value="done">✅ Done</option>
+                        </select>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-danger" id="deleteBtn" style="display:none" onclick="deleteTask()">Delete</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     
     <script>
+        // ============ PIN SYSTEM ============
+        const CORRECT_PIN = '0210'; // Mike's birthday: Feb 10
+        let enteredPin = '';
+        
+        function addDigit(digit) {
+            if (enteredPin.length < 4) {
+                enteredPin += digit;
+                updatePinDots();
+                
+                if (enteredPin.length === 4) {
+                    setTimeout(checkPin, 200);
+                }
+            }
+        }
+        
+        function removeDigit() {
+            enteredPin = enteredPin.slice(0, -1);
+            updatePinDots();
+            document.getElementById('pinError').textContent = '';
+        }
+        
+        function updatePinDots() {
+            document.querySelectorAll('.pin-dot').forEach((dot, i) => {
+                dot.classList.remove('filled', 'error');
+                if (i < enteredPin.length) {
+                    dot.classList.add('filled');
+                }
+            });
+        }
+        
+        function checkPin() {
+            if (enteredPin === CORRECT_PIN) {
+                document.getElementById('pinScreen').classList.add('hidden');
+                document.getElementById('app').classList.add('visible');
+                sessionStorage.setItem('kanban-unlocked', 'true');
+            } else {
+                document.querySelectorAll('.pin-dot').forEach(dot => {
+                    dot.classList.add('error');
+                });
+                document.getElementById('pinError').textContent = 'Incorrect PIN';
+                setTimeout(() => {
+                    enteredPin = '';
+                    updatePinDots();
+                }, 500);
+            }
+        }
+        
+        function lockApp() {
+            sessionStorage.removeItem('kanban-unlocked');
+            document.getElementById('app').classList.remove('visible');
+            document.getElementById('pinScreen').classList.remove('hidden');
+            enteredPin = '';
+            updatePinDots();
+        }
+        
+        // Check if already unlocked this session
+        if (sessionStorage.getItem('kanban-unlocked') === 'true') {
+            document.getElementById('pinScreen').classList.add('hidden');
+            document.getElementById('app').classList.add('visible');
+        }
+        
+        // Keyboard support for PIN
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('pinScreen').classList.contains('hidden')) {
+                if (e.key >= '0' && e.key <= '9') {
+                    addDigit(e.key);
+                } else if (e.key === 'Backspace') {
+                    removeDigit();
+                }
+            }
+        });
+        
+        // ============ KANBAN SYSTEM ============
         let tasks = [];
         let activeFilter = 'all';
         let draggedCard = null;
         
-        // Load from localStorage
         function loadTasks() {
             const saved = localStorage.getItem('kanban-tasks');
             if (saved) {
                 tasks = JSON.parse(saved);
             } else {
-                // Sample tasks
                 tasks = [
                     {
                         id: Date.now(),
@@ -510,7 +762,6 @@
             return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
         }
         
-        // Modal functions
         function openModal(taskId = null) {
             const modal = document.getElementById('modalOverlay');
             const form = document.getElementById('taskForm');
@@ -665,10 +916,12 @@
         
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
-            if (e.key === 'n' && !document.querySelector('.modal-overlay.active')) {
-                e.preventDefault();
-                openModal();
+            if (document.getElementById('app').classList.contains('visible')) {
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'n' && !document.querySelector('.modal-overlay.active') && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                    e.preventDefault();
+                    openModal();
+                }
             }
         });
         
