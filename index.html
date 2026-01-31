@@ -128,7 +128,7 @@
             height: 20px;
         }
         
-        /* Main App (hidden until PIN entered) */
+        /* Main App */
         .app {
             display: none;
         }
@@ -141,7 +141,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             padding: 0 10px;
             flex-wrap: wrap;
             gap: 10px;
@@ -187,11 +187,171 @@
             background: rgba(255,255,255,0.2);
         }
         
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+        
+        /* Routines Section */
+        .routines-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 0 10px 20px 10px;
+        }
+        
+        .routines-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .routines-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+        
+        .routines-title span {
+            font-weight: normal;
+            font-size: 13px;
+            margin-left: 10px;
+        }
+        
+        .routines-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .routine-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.08);
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .routine-item:hover {
+            background: rgba(255,255,255,0.12);
+        }
+        
+        .routine-item.completed {
+            opacity: 0.6;
+        }
+        
+        .routine-item.completed .routine-text {
+            text-decoration: line-through;
+        }
+        
+        .routine-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #4f46e5;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        
+        .routine-item.completed .routine-checkbox {
+            background: #4f46e5;
+        }
+        
+        .routine-checkbox::after {
+            content: '✓';
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+        }
+        
+        .routine-item.completed .routine-checkbox::after {
+            opacity: 1;
+        }
+        
+        .routine-text {
+            font-size: 14px;
+        }
+        
+        .routine-streak {
+            font-size: 11px;
+            color: #f59e0b;
+            margin-left: 4px;
+        }
+        
+        .routine-delete {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            width: 20px;
+            height: 20px;
+            background: #ef4444;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .routine-item:hover .routine-delete {
+            opacity: 1;
+        }
+        
+        .add-routine {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .add-routine input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            font-size: 14px;
+            max-width: 250px;
+        }
+        
+        .add-routine input:focus {
+            outline: none;
+            border-color: #4f46e5;
+        }
+        
+        .progress-bar {
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #4ade80;
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+        
+        /* Board */
         .board {
             display: flex;
             gap: 20px;
             overflow-x: auto;
-            padding-bottom: 20px;
+            padding: 0 10px 20px 10px;
         }
         
         .column {
@@ -201,7 +361,7 @@
             max-width: 300px;
             display: flex;
             flex-direction: column;
-            max-height: calc(100vh - 140px);
+            max-height: calc(100vh - 300px);
         }
         
         .column-header {
@@ -404,7 +564,7 @@
             background: #b91c1c;
         }
         
-        /* Projects filter */
+        /* Filters */
         .filters {
             display: flex;
             gap: 10px;
@@ -432,7 +592,7 @@
             border-color: #4f46e5;
         }
         
-        /* Mobile responsive */
+        /* Mobile */
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -454,6 +614,14 @@
             
             .pin-keypad {
                 grid-template-columns: repeat(3, 60px);
+            }
+            
+            .routines-list {
+                flex-direction: column;
+            }
+            
+            .routine-item {
+                width: 100%;
             }
         }
     </style>
@@ -495,13 +663,32 @@
         <header>
             <h1>🗂️ Project Kanban</h1>
             <div class="header-actions">
-                <button class="btn btn-secondary" onclick="exportData()">📤 Export</button>
-                <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">📥 Import</button>
+                <button class="btn btn-secondary btn-small" onclick="exportData()">📤</button>
+                <button class="btn btn-secondary btn-small" onclick="document.getElementById('importFile').click()">📥</button>
                 <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
-                <button class="btn btn-secondary" onclick="lockApp()">🔒 Lock</button>
+                <button class="btn btn-secondary btn-small" onclick="lockApp()">🔒</button>
                 <button class="btn btn-primary" onclick="openModal()">+ Add Task</button>
             </div>
         </header>
+        
+        <!-- Daily Routines -->
+        <div class="routines-section">
+            <div class="routines-header">
+                <div class="routines-title">
+                    📅 Daily Routines
+                    <span id="routineDate"></span>
+                </div>
+                <div id="routineProgress">0/0</div>
+            </div>
+            <div class="routines-list" id="routinesList"></div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+            <div class="add-routine">
+                <input type="text" id="newRoutineInput" placeholder="Add routine..." onkeypress="if(event.key==='Enter')addRoutine()">
+                <button class="btn btn-primary btn-small" onclick="addRoutine()">Add</button>
+            </div>
+        </div>
         
         <div class="filters" id="filters">
             <span class="filter-tag active" data-project="all">All Projects</span>
@@ -648,13 +835,11 @@
             updatePinDots();
         }
         
-        // Check if already unlocked this session
         if (sessionStorage.getItem('kanban-unlocked') === 'true') {
             document.getElementById('pinScreen').classList.add('hidden');
             document.getElementById('app').classList.add('visible');
         }
         
-        // Keyboard support for PIN
         document.addEventListener('keydown', (e) => {
             if (!document.getElementById('pinScreen').classList.contains('hidden')) {
                 if (e.key >= '0' && e.key <= '9') {
@@ -664,6 +849,102 @@
                 }
             }
         });
+        
+        // ============ ROUTINES SYSTEM ============
+        let routines = [];
+        
+        function getTodayStr() {
+            return new Date().toISOString().split('T')[0];
+        }
+        
+        function loadRoutines() {
+            const saved = localStorage.getItem('kanban-routines');
+            if (saved) {
+                routines = JSON.parse(saved);
+            } else {
+                routines = [
+                    { id: 1, text: 'Morning briefing', streak: 0 },
+                    { id: 2, text: 'Check calendar', streak: 0 },
+                    { id: 3, text: 'Review inbox', streak: 0 }
+                ];
+            }
+            
+            // Check if we need to reset for new day
+            const lastDate = localStorage.getItem('kanban-routines-date');
+            const today = getTodayStr();
+            
+            if (lastDate !== today) {
+                // New day - reset completions but track streaks
+                routines.forEach(r => {
+                    if (r.completedToday) {
+                        r.streak = (r.streak || 0) + 1;
+                    } else {
+                        r.streak = 0;
+                    }
+                    r.completedToday = false;
+                });
+                localStorage.setItem('kanban-routines-date', today);
+                saveRoutines();
+            }
+            
+            renderRoutines();
+        }
+        
+        function saveRoutines() {
+            localStorage.setItem('kanban-routines', JSON.stringify(routines));
+        }
+        
+        function renderRoutines() {
+            const list = document.getElementById('routinesList');
+            const completed = routines.filter(r => r.completedToday).length;
+            const total = routines.length;
+            
+            document.getElementById('routineDate').textContent = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+            document.getElementById('routineProgress').textContent = `${completed}/${total}`;
+            document.getElementById('progressFill').style.width = total > 0 ? `${(completed/total)*100}%` : '0%';
+            
+            list.innerHTML = routines.map(r => `
+                <div class="routine-item ${r.completedToday ? 'completed' : ''}" onclick="toggleRoutine(${r.id})">
+                    <div class="routine-checkbox"></div>
+                    <span class="routine-text">${r.text}</span>
+                    ${r.streak > 0 ? `<span class="routine-streak">🔥${r.streak}</span>` : ''}
+                    <button class="routine-delete" onclick="event.stopPropagation(); deleteRoutine(${r.id})">×</button>
+                </div>
+            `).join('');
+        }
+        
+        function toggleRoutine(id) {
+            const routine = routines.find(r => r.id === id);
+            if (routine) {
+                routine.completedToday = !routine.completedToday;
+                saveRoutines();
+                renderRoutines();
+            }
+        }
+        
+        function addRoutine() {
+            const input = document.getElementById('newRoutineInput');
+            const text = input.value.trim();
+            if (text) {
+                routines.push({
+                    id: Date.now(),
+                    text: text,
+                    streak: 0,
+                    completedToday: false
+                });
+                saveRoutines();
+                renderRoutines();
+                input.value = '';
+            }
+        }
+        
+        function deleteRoutine(id) {
+            if (confirm('Delete this routine?')) {
+                routines = routines.filter(r => r.id !== id);
+                saveRoutines();
+                renderRoutines();
+            }
+        }
         
         // ============ KANBAN SYSTEM ============
         let tasks = [];
@@ -845,7 +1126,6 @@
             }
         }
         
-        // Drag and drop
         function handleDragStart(event) {
             draggedCard = event.target;
             event.target.classList.add('dragging');
@@ -883,9 +1163,9 @@
             }
         }
         
-        // Export/Import
         function exportData() {
-            const dataStr = JSON.stringify(tasks, null, 2);
+            const data = { tasks, routines };
+            const dataStr = JSON.stringify(data, null, 2);
             const blob = new Blob([dataStr], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -901,13 +1181,18 @@
                 reader.onload = (e) => {
                     try {
                         const imported = JSON.parse(e.target.result);
-                        if (Array.isArray(imported)) {
-                            tasks = imported;
+                        if (imported.tasks) {
+                            tasks = imported.tasks;
                             saveTasks();
-                            renderBoard();
-                            renderFilters();
-                            alert('Import successful!');
                         }
+                        if (imported.routines) {
+                            routines = imported.routines;
+                            saveRoutines();
+                        }
+                        renderBoard();
+                        renderFilters();
+                        renderRoutines();
+                        alert('Import successful!');
                     } catch (err) {
                         alert('Invalid file format');
                     }
@@ -916,7 +1201,6 @@
             }
         }
         
-        // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
             if (document.getElementById('app').classList.contains('visible')) {
                 if (e.key === 'Escape') closeModal();
@@ -929,6 +1213,7 @@
         
         // Initialize
         loadTasks();
+        loadRoutines();
     </script>
 </body>
 </html>
