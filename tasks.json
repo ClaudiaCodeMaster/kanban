@@ -24,7 +24,7 @@
       "project": "Family",
       "description": "11U tournaments within 2hrs of Newtown PA. 80+ tournaments found, March indoor options identified.",
       "priority": "medium",
-      "status": "backlog",
+      "status": "done",
       "created": "2026-01-31T20:30:00.000Z"
     },
     {
@@ -73,5 +73,5 @@
       "created": "2026-01-31T21:00:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-01T16:30:00.000Z"
+  "lastUpdated": "2026-02-01T16:45:00.000Z"
 }
