@@ -1,0 +1,77 @@
+{
+  "tasks": [
+    {
+      "id": 1001,
+      "title": "Mac Mini Headless Setup",
+      "project": "Infrastructure",
+      "description": "Configure Mac mini for headless operation with remote desktop access. Screen Sharing, SSH, energy settings.",
+      "priority": "high",
+      "status": "done",
+      "created": "2026-01-31T22:45:00.000Z"
+    },
+    {
+      "id": 1002,
+      "title": "Home Assistant Migration",
+      "project": "Home Assistant",
+      "description": "Replace HomeBridge with Home Assistant on Pi 4. Migrate 70+ Kasa devices, Hue, YoLink sensors, Ratgdo garage doors, Nest thermostats, Synology cameras.",
+      "priority": "high",
+      "status": "in-progress",
+      "created": "2026-01-31T12:00:00.000Z"
+    },
+    {
+      "id": 1003,
+      "title": "Baseball Tournament Research",
+      "project": "Family",
+      "description": "11U tournaments within 2hrs of Newtown PA. 80+ tournaments found, March indoor options identified.",
+      "priority": "medium",
+      "status": "backlog",
+      "created": "2026-01-31T20:30:00.000Z"
+    },
+    {
+      "id": 1004,
+      "title": "OpenClaw Initial Setup",
+      "project": "Infrastructure",
+      "description": "Gateway config, Telegram integration, memory system, GitHub account (ClaudiaCodeMaster), Bitwarden setup.",
+      "priority": "high",
+      "status": "done",
+      "created": "2026-01-31T10:00:00.000Z"
+    },
+    {
+      "id": 1005,
+      "title": "Kanban Board",
+      "project": "Infrastructure",
+      "description": "Visual project tracking board with GitHub Pages hosting.",
+      "priority": "medium",
+      "status": "done",
+      "created": "2026-01-31T14:00:00.000Z"
+    },
+    {
+      "id": 1006,
+      "title": "HomePod Voice (Siri Shortcut)",
+      "project": "Voice Assistant",
+      "description": "BLOCKED: HomePod times out waiting for HTTP response. Apple limitation. Replaced by Twilio approach.",
+      "priority": "high",
+      "status": "blocked",
+      "created": "2026-02-01T08:00:00.000Z"
+    },
+    {
+      "id": 1007,
+      "title": "Voice Call Integration (Twilio)",
+      "project": "Voice Assistant",
+      "description": "Enable voice calls with Claudia via phone. Outbound and inbound calls via Twilio.",
+      "priority": "high",
+      "status": "in-progress",
+      "created": "2026-02-01T11:00:00.000Z"
+    },
+    {
+      "id": 1008,
+      "title": "Family Bot Setup",
+      "project": "Family",
+      "description": "Telegram bot for family (@PiccarretaFamilyBot). Sonnet model, restricted tools, memory system for kids.",
+      "priority": "high",
+      "status": "done",
+      "created": "2026-01-31T21:00:00.000Z"
+    }
+  ],
+  "lastUpdated": "2026-02-01T16:30:00.000Z"
+}

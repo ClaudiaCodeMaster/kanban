@@ -951,83 +951,23 @@
         let activeFilter = 'all';
         let draggedCard = null;
         
-        function loadTasks() {
-            const saved = localStorage.getItem('kanban-tasks');
-            if (saved) {
-                tasks = JSON.parse(saved);
-            } else {
-                tasks = [
-                    {
-                        id: 1001,
-                        title: 'Mac Mini Headless Setup',
-                        project: 'Infrastructure',
-                        description: 'Configure Mac mini for headless operation with remote desktop access. Screen Sharing, SSH, energy settings, dummy HDMI.',
-                        priority: 'high',
-                        status: 'done',
-                        created: '2026-01-31T22:45:00.000Z'
-                    },
-                    {
-                        id: 1002,
-                        title: 'Home Assistant Migration',
-                        project: 'Home Assistant',
-                        description: 'Replace HomeBridge with Home Assistant on Pi 4. Migrate 70+ Kasa devices, Hue, YoLink sensors, Ratgdo garage doors, Nest thermostats, Synology cameras.',
-                        priority: 'high',
-                        status: 'in-progress',
-                        created: '2026-01-31T12:00:00.000Z'
-                    },
-                    {
-                        id: 1003,
-                        title: 'Baseball Tournament Research',
-                        project: 'Family',
-                        description: '11U tournaments within 2hrs of Newtown PA. 80+ tournaments found, March indoor options identified. Contact: drztournamentbaseball@gmail.com',
-                        priority: 'medium',
-                        status: 'backlog',
-                        created: '2026-01-31T20:30:00.000Z'
-                    },
-                    {
-                        id: 1004,
-                        title: 'OpenClaw Initial Setup',
-                        project: 'Infrastructure',
-                        description: 'Gateway config, Telegram integration, memory system, GitHub account (ClaudiaCodeMaster), Bitwarden setup.',
-                        priority: 'high',
-                        status: 'done',
-                        created: '2026-01-31T10:00:00.000Z'
-                    },
-                    {
-                        id: 1005,
-                        title: 'Kanban Board',
-                        project: 'Infrastructure',
-                        description: 'Visual project tracking board with GitHub Pages hosting.',
-                        priority: 'medium',
-                        status: 'done',
-                        created: '2026-01-31T14:00:00.000Z'
-                    },
-                    {
-                        id: 1006,
-                        title: 'HomePod Voice (Siri Shortcut)',
-                        project: 'Voice Assistant',
-                        description: 'Attempted Siri Shortcut for HomePod voice interaction. BLOCKED: HomePod times out waiting for HTTP response. Apple limitation.',
-                        priority: 'high',
-                        status: 'blocked',
-                        created: '2026-02-01T08:00:00.000Z'
-                    },
-                    {
-                        id: 1007,
-                        title: 'Voice Call Integration (Twilio)',
-                        project: 'Voice Assistant',
-                        description: 'Enable voice calls with Claudia via phone. Outbound and inbound calls via Twilio. Replaces failed Siri/HomePod approach.',
-                        priority: 'high',
-                        status: 'in-progress',
-                        created: '2026-02-01T11:00:00.000Z'
-                    }
-                ];
+        async function loadTasks() {
+            try {
+                // Always fetch from tasks.json (managed by Claudia)
+                const response = await fetch('tasks.json?t=' + Date.now());
+                const data = await response.json();
+                tasks = data.tasks || [];
+            } catch (error) {
+                console.error('Failed to load tasks:', error);
+                tasks = [];
             }
             renderBoard();
             renderFilters();
         }
         
         function saveTasks() {
-            localStorage.setItem('kanban-tasks', JSON.stringify(tasks));
+            // No-op: tasks are managed by Claudia via tasks.json
+            // Drag/drop works within session but doesn't persist
         }
         
         function renderBoard() {
