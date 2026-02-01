@@ -58,7 +58,7 @@
       "id": 1007,
       "title": "Voice Call Integration (Twilio)",
       "project": "Voice Assistant",
-      "description": "Enable voice calls with Claudia via phone. Outbound and inbound calls via Twilio.",
+      "description": "Enable voice calls with Claudia via phone. Account created (claudiapicc@icloud.com). Waiting on payment setup + API credentials.",
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-01T11:00:00.000Z"
@@ -73,5 +73,5 @@
       "created": "2026-01-31T21:00:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-01T16:45:00.000Z"
+  "lastUpdated": "2026-02-01T17:48:00.000Z"
 }
