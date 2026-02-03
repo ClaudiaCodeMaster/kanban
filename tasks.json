@@ -125,7 +125,34 @@
       "priority": "high",
       "status": "done",
       "created": "2026-02-02T10:00:00.000Z"
+    },
+    {
+      "id": 1015,
+      "title": "Jericho HOA Formation",
+      "project": "HOA",
+      "description": "Form homeowners association for Jericho neighborhood. Bylaws, dues structure, legal formation process.",
+      "priority": "high",
+      "status": "in-progress",
+      "created": "2026-02-01T14:00:00.000Z"
+    },
+    {
+      "id": 1016,
+      "title": "AI Agent Creation Framework",
+      "project": "Automation",
+      "description": "Build reusable framework for creating specialized sub-agents. Templates, best practices, orchestration patterns.",
+      "priority": "medium",
+      "status": "backlog",
+      "created": "2026-02-02T16:00:00.000Z"
+    },
+    {
+      "id": 1017,
+      "title": "Voice Realtime API",
+      "project": "Voice Assistant",
+      "description": "Explore OpenAI Realtime API for natural voice conversations. Alternative to Twilio TTS approach.",
+      "priority": "low",
+      "status": "backlog",
+      "created": "2026-02-01T09:00:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-03T03:53:00.000Z"
+  "lastUpdated": "2026-02-03T11:00:00.000Z"
 }
