@@ -13,7 +13,7 @@
       "id": 1002,
       "title": "Home Assistant Migration",
       "project": "Home Assistant",
-      "description": "Replace HomeBridge with Home Assistant on Pi 4. Migrate 70+ Kasa devices, Hue, YoLink sensors, Ratgdo garage doors, Nest thermostats, Synology cameras.",
+      "description": "Replace HomeBridge with Home Assistant. 487 entities integrated: 57 Kasa devices, Hue, YoLink sensors, Nest thermostats, Apple TV/HomePod. Pending: SimpliSafe, Synology, Roomba.",
       "priority": "high",
       "status": "in-progress",
       "created": "2026-01-31T12:00:00.000Z"
@@ -40,7 +40,7 @@
       "id": 1005,
       "title": "Kanban Board",
       "project": "Infrastructure",
-      "description": "Visual project tracking board with GitHub Pages hosting.",
+      "description": "Visual project tracking board with GitHub Pages hosting. PIN protected, auto-sync from GitHub.",
       "priority": "medium",
       "status": "done",
       "created": "2026-01-31T14:00:00.000Z"
@@ -49,7 +49,7 @@
       "id": 1006,
       "title": "HomePod Voice (Siri Shortcut)",
       "project": "Voice Assistant",
-      "description": "BLOCKED: HomePod times out waiting for HTTP response. Apple limitation. Replaced by Twilio approach.",
+      "description": "BLOCKED: HomePod times out waiting for HTTP response. Apple limitation.",
       "priority": "high",
       "status": "blocked",
       "created": "2026-02-01T08:00:00.000Z"
@@ -58,9 +58,9 @@
       "id": 1007,
       "title": "Voice Call Integration (Twilio)",
       "project": "Voice Assistant",
-      "description": "Enable voice calls with Claudia via phone. Account created (claudiapicc@icloud.com). Waiting on payment setup + API credentials.",
+      "description": "Phone calls with Claudia via Twilio. Working with ngrok static domain. Number: +1 610-890-5758.",
       "priority": "high",
-      "status": "in-progress",
+      "status": "done",
       "created": "2026-02-01T11:00:00.000Z"
     },
     {
@@ -71,7 +71,61 @@
       "priority": "high",
       "status": "done",
       "created": "2026-01-31T21:00:00.000Z"
+    },
+    {
+      "id": 1009,
+      "title": "AI Model Routing",
+      "project": "Infrastructure",
+      "description": "Implemented Opus for conversations, Sonnet for sub-agents. Prompt caching enabled (1hr TTL). ~50% cost savings.",
+      "priority": "medium",
+      "status": "done",
+      "created": "2026-02-02T15:00:00.000Z"
+    },
+    {
+      "id": 1010,
+      "title": "Weekly Planning Agent",
+      "project": "Automation",
+      "description": "Sunday 7 PM interactive planning session. 6-step flow: close-out, open items, priorities, reminders, time blocking, relationships.",
+      "priority": "high",
+      "status": "done",
+      "created": "2026-02-02T21:00:00.000Z"
+    },
+    {
+      "id": 1011,
+      "title": "Daily Briefing Agent",
+      "project": "Automation",
+      "description": "5:45 AM briefing with sub-agents: Email Analyst, Industry Scanner, Competitor Monitor. 8 sections including fitness tracking.",
+      "priority": "high",
+      "status": "in-progress",
+      "created": "2026-02-02T22:00:00.000Z"
+    },
+    {
+      "id": 1012,
+      "title": "Fitness HealthKit Shortcut",
+      "project": "Automation",
+      "description": "iOS Shortcut to export HealthKit data: steps, workouts, calories burned, calories consumed, exercise minutes.",
+      "priority": "medium",
+      "status": "backlog",
+      "created": "2026-02-02T22:50:00.000Z"
+    },
+    {
+      "id": 1013,
+      "title": "Grace Circle HOA Reserve Study",
+      "project": "HOA",
+      "description": "20-year reserve study for private road. 9 homes, $167/month contribution, DKC snow contract. Gist published.",
+      "priority": "medium",
+      "status": "done",
+      "created": "2026-02-02T18:00:00.000Z"
+    },
+    {
+      "id": 1014,
+      "title": "VPN Fix (StrongSwan + OpenVPN)",
+      "project": "Infrastructure",
+      "description": "Fixed IP forwarding and route push on Raspberry Pi. Both IKEv2 and OpenVPN now working for remote access.",
+      "priority": "high",
+      "status": "done",
+      "created": "2026-02-02T10:00:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-01T17:48:00.000Z"
+  "lastUpdated": "2026-02-03T03:53:00.000Z"
 }
