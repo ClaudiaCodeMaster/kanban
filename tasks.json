@@ -137,12 +137,12 @@
     },
     {
       "id": 1016,
-      "title": "AI Agent Creation Framework",
+      "title": "Second Brain",
       "project": "Automation",
-      "description": "Build reusable framework for creating specialized sub-agents. Templates, best practices, orchestration patterns.",
-      "priority": "medium",
+      "description": "Domain expertise system for Pharma/MedTech Supply Chain. LanceDB + Ollama embeddings, local-first architecture. Awaiting Mike's answers to 27 planning questions.",
+      "priority": "high",
       "status": "backlog",
-      "created": "2026-02-02T16:00:00.000Z"
+      "created": "2026-02-04T22:00:00.000Z"
     },
     {
       "id": 1017,
@@ -154,5 +154,5 @@
       "created": "2026-02-01T09:00:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-03T11:00:00.000Z"
+  "lastUpdated": "2026-02-04T22:16:00.000Z"
 }
