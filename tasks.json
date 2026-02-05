@@ -152,7 +152,43 @@
       "priority": "low",
       "status": "backlog",
       "created": "2026-02-01T09:00:00.000Z"
+    },
+    {
+      "id": 1018,
+      "title": "Competitor Intelligence Repository",
+      "project": "Automation",
+      "description": "Track what competitor consulting firms publish in pharma/medtech/supply chain. 13 firms monitored across 4 topics. Private GitHub repo with firm + topic folder structure.",
+      "priority": "high",
+      "status": "in-progress",
+      "created": "2026-02-03T10:00:00.000Z"
+    },
+    {
+      "id": 1019,
+      "title": "Professional Email Agent",
+      "project": "Automation",
+      "description": "Learning email assistant that drafts professional emails in Mike's style. Analyzes edits to improve over time. Style guide with tone options.",
+      "priority": "medium",
+      "status": "done",
+      "created": "2026-02-03T14:00:00.000Z"
+    },
+    {
+      "id": 1020,
+      "title": "End of Day Debrief",
+      "project": "Automation",
+      "description": "8 PM weekday check-in: review the day, surface loose ends, preview tomorrow, capture thoughts. Conversational Telegram delivery.",
+      "priority": "medium",
+      "status": "done",
+      "created": "2026-02-04T20:00:00.000Z"
+    },
+    {
+      "id": 1021,
+      "title": "AI Agent Creation Framework",
+      "project": "Infrastructure",
+      "description": "Build specialized sub-agents for common tasks. Tiered plan: Morning Brief, Research, Home Automation (Tier 1), then Writing and Family Coordinator (Tier 2).",
+      "priority": "medium",
+      "status": "backlog",
+      "created": "2026-02-02T16:00:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-04T22:16:00.000Z"
+  "lastUpdated": "2026-02-05T11:00:00.000Z"
 }
