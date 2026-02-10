@@ -19,7 +19,7 @@
             color: #fff;
         }
         
-        /* PIN Screen */
+        /* PIN Screen - REMOVED (local access only)
         .pin-screen {
             position: fixed;
             top: 0;
@@ -128,12 +128,10 @@
             height: 20px;
         }
         
+        END PIN SCREEN CSS */
+        
         /* Main App */
         .app {
-            display: none;
-        }
-        
-        .app.visible {
             display: block;
         }
         
@@ -192,7 +190,7 @@
             font-size: 12px;
         }
         
-        /* Routines Section */
+        /* Routines Section - REMOVED
         .routines-section {
             background: rgba(255,255,255,0.05);
             border-radius: 12px;
@@ -345,6 +343,8 @@
             border-radius: 2px;
             transition: width 0.3s;
         }
+        
+        END ROUTINES CSS */
         
         /* Board */
         .board {
@@ -627,68 +627,17 @@
     </style>
 </head>
 <body>
-    <!-- PIN Screen -->
-    <div class="pin-screen" id="pinScreen">
-        <div class="pin-container">
-            <div class="pin-logo">🔐</div>
-            <div class="pin-title">Enter PIN</div>
-            <div class="pin-dots">
-                <div class="pin-dot" data-index="0"></div>
-                <div class="pin-dot" data-index="1"></div>
-                <div class="pin-dot" data-index="2"></div>
-                <div class="pin-dot" data-index="3"></div>
-                <div class="pin-dot" data-index="4"></div>
-                <div class="pin-dot" data-index="5"></div>
-            </div>
-            <div class="pin-keypad">
-                <button class="pin-key" onclick="addDigit('1')">1</button>
-                <button class="pin-key" onclick="addDigit('2')">2</button>
-                <button class="pin-key" onclick="addDigit('3')">3</button>
-                <button class="pin-key" onclick="addDigit('4')">4</button>
-                <button class="pin-key" onclick="addDigit('5')">5</button>
-                <button class="pin-key" onclick="addDigit('6')">6</button>
-                <button class="pin-key" onclick="addDigit('7')">7</button>
-                <button class="pin-key" onclick="addDigit('8')">8</button>
-                <button class="pin-key" onclick="addDigit('9')">9</button>
-                <button class="pin-key empty"></button>
-                <button class="pin-key" onclick="addDigit('0')">0</button>
-                <button class="pin-key backspace" onclick="removeDigit()">⌫</button>
-            </div>
-            <div class="pin-error-msg" id="pinError"></div>
-        </div>
-    </div>
-    
-    <!-- Main App -->
-    <div class="app" id="app">
+    <!-- Main App (no PIN - local access only) -->
+    <div class="app visible" id="app">
         <header>
             <h1>🗂️ Project Kanban</h1>
             <div class="header-actions">
                 <button class="btn btn-secondary btn-small" onclick="exportData()">📤</button>
                 <button class="btn btn-secondary btn-small" onclick="document.getElementById('importFile').click()">📥</button>
                 <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
-                <button class="btn btn-secondary btn-small" onclick="lockApp()">🔒</button>
                 <button class="btn btn-primary" onclick="openModal()">+ Add Task</button>
             </div>
         </header>
-        
-        <!-- Daily Routines -->
-        <div class="routines-section">
-            <div class="routines-header">
-                <div class="routines-title">
-                    📅 Daily Routines
-                    <span id="routineDate"></span>
-                </div>
-                <div id="routineProgress">0/0</div>
-            </div>
-            <div class="routines-list" id="routinesList"></div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-            </div>
-            <div class="add-routine">
-                <input type="text" id="newRoutineInput" placeholder="Add routine..." onkeypress="if(event.key==='Enter')addRoutine()">
-                <button class="btn btn-primary btn-small" onclick="addRoutine()">Add</button>
-            </div>
-        </div>
         
         <div class="filters" id="filters">
             <span class="filter-tag active" data-project="all">All Projects</span>
@@ -780,172 +729,7 @@
     </div>
     
     <script>
-        // ============ PIN SYSTEM ============
-        const CORRECT_PIN = '021080'; // Mike's birthday: Feb 10, 1980
-        let enteredPin = '';
-        
-        function addDigit(digit) {
-            if (enteredPin.length < 6) {
-                enteredPin += digit;
-                updatePinDots();
-                
-                if (enteredPin.length === 6) {
-                    setTimeout(checkPin, 200);
-                }
-            }
-        }
-        
-        function removeDigit() {
-            enteredPin = enteredPin.slice(0, -1);
-            updatePinDots();
-            document.getElementById('pinError').textContent = '';
-        }
-        
-        function updatePinDots() {
-            document.querySelectorAll('.pin-dot').forEach((dot, i) => {
-                dot.classList.remove('filled', 'error');
-                if (i < enteredPin.length) {
-                    dot.classList.add('filled');
-                }
-            });
-        }
-        
-        function checkPin() {
-            if (enteredPin === CORRECT_PIN) {
-                document.getElementById('pinScreen').classList.add('hidden');
-                document.getElementById('app').classList.add('visible');
-                sessionStorage.setItem('kanban-unlocked', 'true');
-            } else {
-                document.querySelectorAll('.pin-dot').forEach(dot => {
-                    dot.classList.add('error');
-                });
-                document.getElementById('pinError').textContent = 'Incorrect PIN';
-                setTimeout(() => {
-                    enteredPin = '';
-                    updatePinDots();
-                }, 500);
-            }
-        }
-        
-        function lockApp() {
-            sessionStorage.removeItem('kanban-unlocked');
-            document.getElementById('app').classList.remove('visible');
-            document.getElementById('pinScreen').classList.remove('hidden');
-            enteredPin = '';
-            updatePinDots();
-        }
-        
-        if (sessionStorage.getItem('kanban-unlocked') === 'true') {
-            document.getElementById('pinScreen').classList.add('hidden');
-            document.getElementById('app').classList.add('visible');
-        }
-        
-        document.addEventListener('keydown', (e) => {
-            if (!document.getElementById('pinScreen').classList.contains('hidden')) {
-                if (e.key >= '0' && e.key <= '9') {
-                    addDigit(e.key);
-                } else if (e.key === 'Backspace') {
-                    removeDigit();
-                }
-            }
-        });
-        
-        // ============ ROUTINES SYSTEM ============
-        let routines = [];
-        
-        function getTodayStr() {
-            return new Date().toISOString().split('T')[0];
-        }
-        
-        function loadRoutines() {
-            const saved = localStorage.getItem('kanban-routines');
-            if (saved) {
-                routines = JSON.parse(saved);
-            } else {
-                routines = [
-                    { id: 1, text: 'Morning briefing', streak: 0 },
-                    { id: 2, text: 'Check calendar', streak: 0 },
-                    { id: 3, text: 'Review inbox', streak: 0 }
-                ];
-            }
-            
-            // Check if we need to reset for new day
-            const lastDate = localStorage.getItem('kanban-routines-date');
-            const today = getTodayStr();
-            
-            if (lastDate !== today) {
-                // New day - reset completions but track streaks
-                routines.forEach(r => {
-                    if (r.completedToday) {
-                        r.streak = (r.streak || 0) + 1;
-                    } else {
-                        r.streak = 0;
-                    }
-                    r.completedToday = false;
-                });
-                localStorage.setItem('kanban-routines-date', today);
-                saveRoutines();
-            }
-            
-            renderRoutines();
-        }
-        
-        function saveRoutines() {
-            localStorage.setItem('kanban-routines', JSON.stringify(routines));
-        }
-        
-        function renderRoutines() {
-            const list = document.getElementById('routinesList');
-            const completed = routines.filter(r => r.completedToday).length;
-            const total = routines.length;
-            
-            document.getElementById('routineDate').textContent = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-            document.getElementById('routineProgress').textContent = `${completed}/${total}`;
-            document.getElementById('progressFill').style.width = total > 0 ? `${(completed/total)*100}%` : '0%';
-            
-            list.innerHTML = routines.map(r => `
-                <div class="routine-item ${r.completedToday ? 'completed' : ''}" onclick="toggleRoutine(${r.id})">
-                    <div class="routine-checkbox"></div>
-                    <span class="routine-text">${r.text}</span>
-                    ${r.streak > 0 ? `<span class="routine-streak">🔥${r.streak}</span>` : ''}
-                    <button class="routine-delete" onclick="event.stopPropagation(); deleteRoutine(${r.id})">×</button>
-                </div>
-            `).join('');
-        }
-        
-        function toggleRoutine(id) {
-            const routine = routines.find(r => r.id === id);
-            if (routine) {
-                routine.completedToday = !routine.completedToday;
-                saveRoutines();
-                renderRoutines();
-            }
-        }
-        
-        function addRoutine() {
-            const input = document.getElementById('newRoutineInput');
-            const text = input.value.trim();
-            if (text) {
-                routines.push({
-                    id: Date.now(),
-                    text: text,
-                    streak: 0,
-                    completedToday: false
-                });
-                saveRoutines();
-                renderRoutines();
-                input.value = '';
-            }
-        }
-        
-        function deleteRoutine(id) {
-            if (confirm('Delete this routine?')) {
-                routines = routines.filter(r => r.id !== id);
-                saveRoutines();
-                renderRoutines();
-            }
-        }
-        
+        /* PIN and ROUTINES systems removed — local access only */
         // ============ KANBAN SYSTEM ============
         let tasks = [];
         let activeFilter = 'all';
@@ -1176,7 +960,6 @@
                         }
                         renderBoard();
                         renderFilters();
-                        renderRoutines();
                         alert('Import successful!');
                     } catch (err) {
                         alert('Invalid file format');
@@ -1198,7 +981,6 @@
         
         // Initialize
         loadTasks();
-        loadRoutines();
     </script>
 </body>
 </html>
