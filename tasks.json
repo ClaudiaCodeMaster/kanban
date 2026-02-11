@@ -206,7 +206,16 @@
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-10T18:15:00.000Z"
+    },
+    {
+      "id": 1024,
+      "title": "Tool Optimization",
+      "project": "Infrastructure",
+      "description": "Analyze and optimize OpenClaw tool usage patterns. Identify redundant calls, improve efficiency, reduce token consumption.",
+      "priority": "medium",
+      "status": "backlog",
+      "created": "2026-02-10T20:00:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-10T23:15:00.000Z"
+  "lastUpdated": "2026-02-11T12:16:00.000Z"
 }
