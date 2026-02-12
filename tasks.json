@@ -139,9 +139,9 @@
       "id": 1016,
       "title": "Second Brain",
       "project": "Automation",
-      "description": "Domain expertise system for Pharma/MedTech Supply Chain. LanceDB + Ollama embeddings, local-first architecture. Awaiting Mike's answers to 27 planning questions.",
+      "description": "Enterprise knowledge system for Pharma/MedTech Supply Chain. Multi-agent expert network with hybrid retrieval (Vector + Graph + SQL). Architecture doc complete with 4-phase build plan. Private repo created.",
       "priority": "high",
-      "status": "backlog",
+      "status": "in-progress",
       "created": "2026-02-04T22:00:00.000Z"
     },
     {
