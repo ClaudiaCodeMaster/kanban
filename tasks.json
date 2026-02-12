@@ -141,7 +141,7 @@
       "project": "Automation",
       "description": "Enterprise knowledge system for Pharma/MedTech Supply Chain. Multi-agent expert network with hybrid retrieval (Vector + Graph + SQL). Architecture doc complete with 4-phase build plan. Private repo created.",
       "priority": "high",
-      "status": "in-progress",
+      "status": "backlog",
       "created": "2026-02-04T22:00:00.000Z"
     },
     {
@@ -204,7 +204,7 @@
       "project": "Infrastructure",
       "description": "Web app to monitor and orchestrate OpenClaw agents. Complete: Dashboard, Agents, Sessions, Chat, Cron, Config Editor, Analytics (real cost DB), Agent Designer, Team Builder, Activity Monitor, Projects with batch task runner and ordering. Full project-centric architecture implemented.",
       "priority": "high",
-      "status": "done",
+      "status": "in-progress",
       "created": "2026-02-10T18:15:00.000Z"
     },
     {
@@ -217,5 +217,5 @@
       "created": "2026-02-10T20:00:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-11T23:15:00.000Z"
+  "lastUpdated": "2026-02-12T11:15:00.000Z"
 }
