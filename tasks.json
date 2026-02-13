@@ -215,7 +215,16 @@
       "priority": "medium",
       "status": "backlog",
       "created": "2026-02-10T20:00:00.000Z"
+    },
+    {
+      "id": 1025,
+      "title": "Connect Enterprise Claude Cowork",
+      "project": "Infrastructure",
+      "description": "Bridge Work Claude (has email/calendar access) with Claudia (can take actions). Apple Notes relay: Work Claude writes to Claudia/Inbox, I poll and execute actions (reminders, notifications). Zero tokens when idle.",
+      "priority": "medium",
+      "status": "backlog",
+      "created": "2026-02-13T22:10:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-13T11:15:00.000Z"
+  "lastUpdated": "2026-02-13T23:15:00.000Z"
 }
