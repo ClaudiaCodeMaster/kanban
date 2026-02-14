@@ -139,9 +139,9 @@
       "id": 1016,
       "title": "Second Brain",
       "project": "Automation",
-      "description": "Enterprise knowledge system for Pharma/MedTech Supply Chain. Multi-agent expert network with hybrid retrieval (Vector + Graph + SQL). Architecture doc complete with 4-phase build plan. Private repo created.",
+      "description": "Vector knowledge base for pharma/medtech domain expertise. LanceDB + Ollama embeddings. MVP Complete with 5,112 records. RSS Pipeline, Cron Integration, and OpenClaw Skill all working.",
       "priority": "high",
-      "status": "backlog",
+      "status": "done",
       "created": "2026-02-04T22:00:00.000Z"
     },
     {
@@ -202,9 +202,9 @@
       "id": 1023,
       "title": "AI Management Studio",
       "project": "Infrastructure",
-      "description": "Web app to monitor and orchestrate OpenClaw agents. Complete: Dashboard, Agents, Sessions, Chat, Cron, Config Editor, Analytics (real cost DB), Agent Designer, Team Builder, Activity Monitor, Projects with batch task runner and ordering. Full project-centric architecture implemented.",
+      "description": "Web app to monitor and orchestrate OpenClaw agents. Complete (v0.5.0): Dashboard, Agents, Sessions, Chat, Cron, Config Editor, Analytics (real cost DB), Agent Designer, Team Builder, Activity Monitor, Projects with batch task runner. All phases delivered. Running at http://192.168.1.176:3000.",
       "priority": "high",
-      "status": "in-progress",
+      "status": "done",
       "created": "2026-02-10T18:15:00.000Z"
     },
     {
@@ -224,7 +224,34 @@
       "priority": "medium",
       "status": "backlog",
       "created": "2026-02-13T22:10:00.000Z"
+    },
+    {
+      "id": 1026,
+      "title": "Pharma Pipeline Database",
+      "project": "Research",
+      "description": "Comprehensive database of pharmaceutical products with supply chain lens. Phase 6 Complete: 143 MB database, 36 tables, 30 views. 34,913 drugs | 9,348 facilities | 3,299 warning letters | 578 SEC disclosures. Patent cliff analysis, pipeline validation working.",
+      "priority": "high",
+      "status": "done",
+      "created": "2026-02-14T10:00:00.000Z"
+    },
+    {
+      "id": 1027,
+      "title": "Pharma Dashboard",
+      "project": "Research",
+      "description": "Interactive visualization of pharma pipeline data — companies, facilities, supply chain intelligence. Foundation built with company list, map, and facility details. Need: geocoding, company pages, drug views, risk scorecards. 11 tasks in backlog.",
+      "priority": "high",
+      "status": "in-progress",
+      "created": "2026-02-14T12:00:00.000Z"
+    },
+    {
+      "id": 1028,
+      "title": "MedTech Warehouse Database",
+      "project": "Research",
+      "description": "Database of medical device distribution centers and warehouses. Primary source: openFDA Device Registration (5-15K facilities). Also: EUDAMED, Health Canada, SEC 10-Ks, FDA inspections. Links to Second Brain for semantic search. 11 tasks defined.",
+      "priority": "medium",
+      "status": "backlog",
+      "created": "2026-02-14T14:00:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-14T11:15:00.000Z"
+  "lastUpdated": "2026-02-14T23:15:00.000Z"
 }
