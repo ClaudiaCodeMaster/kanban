@@ -40,7 +40,7 @@
       "id": 1005,
       "title": "Kanban Board",
       "project": "Infrastructure",
-      "description": "Visual project tracking board with GitHub Pages hosting. PIN protected, auto-sync from GitHub.",
+      "description": "Visual project tracking board with GitHub Pages hosting. Auto-sync from cron job.",
       "priority": "medium",
       "status": "done",
       "created": "2026-01-31T14:00:00.000Z"
@@ -193,7 +193,7 @@
       "id": 1022,
       "title": "2026 Biopharma CEO Agenda",
       "project": "Research",
-      "description": "Thought leadership article defining 2026 CEO agenda for biopharma. DRAFT-v4 complete (4,500 words, plagiarism clean). 4 themes: Algorithm Wars, End of Strategic Stability, AI Transformation Question, GLP-1 Reckoning. 12 Kearney citations. Awaiting Mike's review of DRAFT-v4.",
+      "description": "Thought leadership article defining 2026 CEO agenda for biopharma. DRAFT-v4 complete (4,500 words). Paula approved Feb 7: 'I love it, punchy, grabs attention.' 4 themes: Algorithm Wars, End of Strategic Stability, AI Transformation Question, GLP-1 Reckoning. Next: proprietary analysis graphs, partner interviews.",
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-06T10:00:00.000Z"
@@ -202,7 +202,7 @@
       "id": 1023,
       "title": "AI Management Studio",
       "project": "Infrastructure",
-      "description": "Web app to monitor and orchestrate OpenClaw agents. Complete (v0.5.0): Dashboard, Agents, Sessions, Chat, Cron, Config Editor, Analytics (real cost DB), Agent Designer, Team Builder, Activity Monitor, Projects with batch task runner. All phases delivered. Running at http://192.168.1.176:3000.",
+      "description": "Web app to monitor and orchestrate OpenClaw agents. Complete (v0.5.0): Dashboard, Agents, Sessions, Chat, Cron, Config Editor, Analytics (real cost DB), Agent Designer, Team Builder, Activity Monitor, Projects with batch task runner. Running at http://192.168.1.176:3000.",
       "priority": "high",
       "status": "done",
       "created": "2026-02-10T18:15:00.000Z"
@@ -218,9 +218,9 @@
     },
     {
       "id": 1025,
-      "title": "Connect Enterprise Claude Cowork",
+      "title": "Connect Enterprise Claude / Work Bridge",
       "project": "Infrastructure",
-      "description": "Bridge Work Claude (has email/calendar access) with Claudia (can take actions). Apple Notes relay: Work Claude writes to Claudia/Inbox, I poll and execute actions (reminders, notifications). Zero tokens when idle.",
+      "description": "Bridge Work Claude (has email/calendar access) with Claudia (can take actions). Apple Notes relay: Work Claude writes to Claudia/Inbox, I poll and execute. Zero tokens when idle.",
       "priority": "medium",
       "status": "backlog",
       "created": "2026-02-13T22:10:00.000Z"
@@ -229,7 +229,7 @@
       "id": 1026,
       "title": "Pharma Pipeline Database",
       "project": "Research",
-      "description": "Comprehensive database of pharmaceutical products with supply chain lens. Phase 6 Complete: 143 MB database, 36 tables, 30 views. 34,913 drugs | 9,348 facilities | 3,299 warning letters | 578 SEC disclosures. Patent cliff analysis, pipeline validation working.",
+      "description": "Comprehensive pharma database with supply chain lens. Phase 6 Complete: 143 MB, 36 tables, 30 views. 34,913 drugs | 9,348 facilities | 3,299 warning letters | 578 SEC disclosures. Schema overhaul complete (Feb 15). Drug-facility linkage: 11,593 links across 3,672 drugs. FDA approval flag fixed (NDA/ANDA/BLA).",
       "priority": "high",
       "status": "done",
       "created": "2026-02-14T10:00:00.000Z"
@@ -238,7 +238,7 @@
       "id": 1027,
       "title": "Pharma Dashboard",
       "project": "Research",
-      "description": "Interactive visualization of pharma pipeline data — companies, facilities, supply chain intelligence. Foundation built with company list, map, and facility details. Need: geocoding, company pages, drug views, risk scorecards. 11 tasks in backlog.",
+      "description": "Interactive visualization of pharma pipeline data. Foundation built: company list, interactive map, facility detail panel. Next: geocoding for map markers, company detail pages, drug pipeline views, supply chain risk scorecards. Running on port 3001.",
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-14T12:00:00.000Z"
@@ -251,7 +251,25 @@
       "priority": "medium",
       "status": "backlog",
       "created": "2026-02-14T14:00:00.000Z"
+    },
+    {
+      "id": 1029,
+      "title": "Pickleball Reservation Bot",
+      "project": "Automation",
+      "description": "Automated court booking for Bay Forest Community Association via eSoftPlanner. 2-day advance booking window. Agent (Haiku) configured and tested Feb 14 (booked Court 1A). Still needed: Telegram bot token, parent phone numbers, time preferences.",
+      "priority": "medium",
+      "status": "in-progress",
+      "created": "2026-02-14T16:00:00.000Z"
+    },
+    {
+      "id": 1030,
+      "title": "DCAT Week 2026 Prep",
+      "project": "Research",
+      "description": "3rd Annual CPO Roundtable Dinner — March 25, 6 PM, Sea Fire Grill, NYC. Part of DCAT Week (March 23-26, Lotte New York Palace). Need RSVP tracking for past attendees + new invitees, venue logistics, agenda planning. Email templates drafted.",
+      "priority": "high",
+      "status": "in-progress",
+      "created": "2026-02-17T06:15:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-16T23:15:00.000Z"
+  "lastUpdated": "2026-02-17T06:15:00.000Z"
 }
