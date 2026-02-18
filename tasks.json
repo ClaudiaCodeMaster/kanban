@@ -193,10 +193,11 @@
       "id": 1022,
       "title": "2026 Biopharma CEO Agenda",
       "project": "Research",
-      "description": "Thought leadership article defining 2026 CEO agenda for biopharma. DRAFT-v4 complete (4,500 words). Paula approved Feb 7. 4 themes: Algorithm Wars, End of Strategic Stability, AI Transformation Question, GLP-1 Reckoning. Next: proprietary analysis graphs, partner interviews.",
+      "description": "Thought leadership article defining 2026 CEO agenda for biopharma. DRAFT-v4 complete (4,500 words). Paula approved Feb 7 — \"I love it. Its punchy and it grabs your attention straight away.\" 4 themes: Algorithm Wars, End of Strategic Stability, AI Transformation Question, GLP-1 Reckoning. Next: proprietary #kearneyanalysis graphs, partner interviews (Paula, Adriano, Juliet).",
       "priority": "high",
       "status": "in-progress",
-      "created": "2026-02-06T10:00:00.000Z"
+      "created": "2026-02-06T10:00:00.000Z",
+      "updated": "2026-02-18T23:15:00.000Z"
     },
     {
       "id": 1023,
@@ -229,21 +230,21 @@
       "id": 1026,
       "title": "Pharma Pipeline Database",
       "project": "Research",
-      "description": "Comprehensive pharma DB with supply chain lens. Phase 6 Complete: 211 MB, 43 tables, 30 views. 1,504 FDA-approved drugs | 43,559 trials | 3,721 patents | 2,413 warning letters. Unified Facility Master: 10,105 facilities (FDA+EU), 38,977 drug-facility links. SPL bulk parsing complete (35,625 FDA links). Schema overhaul + FDA approval flag fix done.",
+      "description": "Comprehensive pharma DB with supply chain lens. Phase 6 Complete: 211 MB, 43 tables, 30 views. 1,504 FDA-approved drugs | 43,559 trials | 3,721 patents | 2,413 warning letters. Unified Facility Master: 10,105 facilities (FDA+EU). drug_facility_unified: 34,488 clean links (after NDC + duplicate cleanup). EPAR biologics parsing: 65 EPARs processed, 94% FEI precision, biologics linkage solution found. Next: scale EPAR parser to 300+ biologics, build EU↔US crosswalk.",
       "priority": "high",
-      "status": "done",
+      "status": "in-progress",
       "created": "2026-02-14T10:00:00.000Z",
-      "updated": "2026-02-18T06:15:00.000Z"
+      "updated": "2026-02-18T23:15:00.000Z"
     },
     {
       "id": 1027,
       "title": "Pharma Dashboard",
       "project": "Research",
-      "description": "Interactive visualization of pharma pipeline data. Foundation: company list, interactive Leaflet map, facility detail panel. Running on port 3001. Next: wire db.ts to unified facility tables, geocoding for map markers, company detail pages, drug pipeline views, supply chain risk scorecards.",
+      "description": "Interactive visualization of pharma pipeline data. Running on port 3001. Foundation: company list, interactive Leaflet map, facility detail panel. Added 🇺🇸/🇪🇺 regulatory flags per drug-facility source (Feb 18). Next: geocoding for map markers, company detail pages, drug pipeline views, supply chain risk scorecards.",
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-14T12:00:00.000Z",
-      "updated": "2026-02-18T06:15:00.000Z"
+      "updated": "2026-02-18T23:15:00.000Z"
     },
     {
       "id": 1028,
@@ -267,11 +268,32 @@
       "id": 1030,
       "title": "DCAT Week 2026 Prep",
       "project": "Research",
-      "description": "3rd Annual CPO Roundtable Dinner — March 25, 6 PM, Sea Fire Grill, NYC. Part of DCAT Week (March 23-26, Lotte New York Palace). RSVP tracking for past attendees + new invitees, venue logistics, agenda planning. Email templates drafted.",
+      "description": "3rd Annual CPO Roundtable Dinner — March 25, 6 PM, Sea Fire Grill, NYC. Part of DCAT Week (March 23-26). Competitive landscape researched: no major consulting firms (McKinsey, BCG, etc.) registered. Kearney has Vishal Bhandari on Tuesday panel. Email templates drafted for past attendees + new invitees. RSVP tracking, venue logistics pending.",
       "priority": "high",
       "status": "in-progress",
-      "created": "2026-02-17T06:15:00.000Z"
+      "created": "2026-02-17T06:15:00.000Z",
+      "updated": "2026-02-18T23:15:00.000Z"
+    },
+    {
+      "id": 1031,
+      "title": "Claudia Bridge (Work-Liaison)",
+      "project": "Automation",
+      "description": "Two-way bridge between Work Claude (Outlook/calendar) and Claudia. Work Claude pushes email action items → Apple Notes relay → Claudia processes. Work-liaison agent (Haiku, ~5s response) handles routing. Reminder deduplication with 48h expiry. EMAIL ACTIONS list syncs to Mike's iPhone. Speed-fixed Feb 18 (Sonnet → Haiku). Reminder schema standardized.",
+      "priority": "high",
+      "status": "in-progress",
+      "created": "2026-02-16T10:00:00.000Z",
+      "updated": "2026-02-18T23:15:00.000Z"
+    },
+    {
+      "id": 1032,
+      "title": "Biologics EPAR Linkage (Scale-Up)",
+      "project": "Research",
+      "description": "Systematic linking of biologic drugs to manufacturing facilities via EU EPAR documents. BLA SPLs lack manufacturer DUNS (FDA gap); EU legally requires site disclosure. 65 EPARs processed at 94% FEI precision. Next: re-run insert script with verified FEIs, scale to 300+ biologics, build EMEA↔BLA crosswalk, re-geocode facilities.",
+      "priority": "high",
+      "status": "backlog",
+      "created": "2026-02-18T20:00:00.000Z",
+      "updated": "2026-02-18T23:15:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-18T06:15:00.000Z"
+  "lastUpdated": "2026-02-18T23:15:00.000Z"
 }
