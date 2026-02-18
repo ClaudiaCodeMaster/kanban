@@ -229,21 +229,21 @@
       "id": 1026,
       "title": "Pharma Pipeline Database",
       "project": "Research",
-      "description": "Comprehensive pharma DB with supply chain lens. Phase 6 Complete: 211 MB, 43 tables, 30 views. 1,504 FDA-approved drugs | 43,559 trials | 3,721 patents | 2,413 warning letters. Unified Facility Master: 10,105 facilities (FDA+EU), 38,977 drug-facility links. Schema overhaul + FDA approval flag fix complete.",
+      "description": "Comprehensive pharma DB with supply chain lens. Phase 6 Complete: 211 MB, 43 tables, 30 views. 1,504 FDA-approved drugs | 43,559 trials | 3,721 patents | 2,413 warning letters. Unified Facility Master: 10,105 facilities (FDA+EU), 38,977 drug-facility links. SPL bulk parsing complete (35,625 FDA links). Schema overhaul + FDA approval flag fix done.",
       "priority": "high",
       "status": "done",
       "created": "2026-02-14T10:00:00.000Z",
-      "updated": "2026-02-17T18:15:00.000Z"
+      "updated": "2026-02-18T06:15:00.000Z"
     },
     {
       "id": 1027,
       "title": "Pharma Dashboard",
       "project": "Research",
-      "description": "Interactive visualization of pharma pipeline data. Foundation: company list, interactive Leaflet map, facility detail panel. Next: wire db.ts to unified tables, geocoding for map markers, company detail pages, drug pipeline views, supply chain risk scorecards. Running on port 3001.",
+      "description": "Interactive visualization of pharma pipeline data. Foundation: company list, interactive Leaflet map, facility detail panel. Running on port 3001. Next: wire db.ts to unified facility tables, geocoding for map markers, company detail pages, drug pipeline views, supply chain risk scorecards.",
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-14T12:00:00.000Z",
-      "updated": "2026-02-17T18:15:00.000Z"
+      "updated": "2026-02-18T06:15:00.000Z"
     },
     {
       "id": 1028,
@@ -273,5 +273,5 @@
       "created": "2026-02-17T06:15:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-17T23:15:00.000Z"
+  "lastUpdated": "2026-02-18T06:15:00.000Z"
 }
