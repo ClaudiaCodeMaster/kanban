@@ -197,7 +197,7 @@
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-06T10:00:00.000Z",
-      "updated": "2026-02-18T23:15:00.000Z"
+      "updated": "2026-02-19T06:15:00.000Z"
     },
     {
       "id": 1023,
@@ -230,11 +230,11 @@
       "id": 1026,
       "title": "Pharma Pipeline Database",
       "project": "Research",
-      "description": "Comprehensive pharma DB with supply chain lens. Phase 6 Complete: 211 MB, 43 tables, 30 views. 1,504 FDA-approved drugs | 43,559 trials | 3,721 patents | 2,413 warning letters. Unified Facility Master: 10,105 facilities (FDA+EU). drug_facility_unified: 34,488 clean links (after NDC + duplicate cleanup). EPAR biologics parsing: 65 EPARs processed, 94% FEI precision, biologics linkage solution found. Next: scale EPAR parser to 300+ biologics, build EU↔US crosswalk.",
+      "description": "Comprehensive pharma DB with supply chain lens. Phase 6 Complete: 211 MB, 43 tables, 30 views. 1,504 FDA-approved drugs | 43,559 trials | 3,721 patents | 2,413 warning letters. Unified Facility Master: 10,105 facilities (FDA+EU). drug_facility_unified: 34,488 clean links (after NDC + duplicate cleanup). EPAR biologics parsing: 65 EPARs processed, 94% FEI precision. Next: scale EPAR parser to 300+ biologics, build EU↔US crosswalk.",
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-14T10:00:00.000Z",
-      "updated": "2026-02-18T23:15:00.000Z"
+      "updated": "2026-02-19T06:15:00.000Z"
     },
     {
       "id": 1027,
@@ -244,7 +244,7 @@
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-14T12:00:00.000Z",
-      "updated": "2026-02-18T23:15:00.000Z"
+      "updated": "2026-02-19T06:15:00.000Z"
     },
     {
       "id": 1028,
@@ -268,11 +268,11 @@
       "id": 1030,
       "title": "DCAT Week 2026 Prep",
       "project": "Research",
-      "description": "3rd Annual CPO Roundtable Dinner — March 25, 6 PM, Sea Fire Grill, NYC. Part of DCAT Week (March 23-26). Competitive landscape researched: no major consulting firms (McKinsey, BCG, etc.) registered. Kearney has Vishal Bhandari on Tuesday panel. Email templates drafted for past attendees + new invitees. RSVP tracking, venue logistics pending.",
+      "description": "3rd Annual CPO Roundtable Dinner — March 25, 6 PM, Sea Fire Grill, NYC. Part of DCAT Week (March 23-26). Competitive landscape researched: no major consulting firms registered. Kearney has Vishal Bhandari on Tuesday panel. Email templates drafted for past attendees + new invitees. RSVP tracking, venue logistics pending.",
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-17T06:15:00.000Z",
-      "updated": "2026-02-18T23:15:00.000Z"
+      "updated": "2026-02-19T06:15:00.000Z"
     },
     {
       "id": 1031,
@@ -282,7 +282,7 @@
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-16T10:00:00.000Z",
-      "updated": "2026-02-18T23:15:00.000Z"
+      "updated": "2026-02-19T06:15:00.000Z"
     },
     {
       "id": 1032,
@@ -292,8 +292,8 @@
       "priority": "high",
       "status": "backlog",
       "created": "2026-02-18T20:00:00.000Z",
-      "updated": "2026-02-18T23:15:00.000Z"
+      "updated": "2026-02-19T06:15:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-18T23:15:00.000Z"
+  "lastUpdated": "2026-02-19T06:15:00.000Z"
 }
