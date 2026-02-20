@@ -230,11 +230,11 @@
       "id": 1026,
       "title": "Pharma Pipeline Database",
       "project": "Research",
-      "description": "Comprehensive pharma DB with supply chain lens. Phase 6 Complete: 211 MB, 43 tables, 30 views. 1,504 FDA-approved drugs | 43,559 trials | 3,721 patents | 2,413 warning letters. Unified Facility Master: 10,105 facilities (FDA+EU). drug_facility_unified: 34,488 clean links (after NDC + duplicate cleanup). EPAR biologics parsing: 65 EPARs processed, 94% FEI precision. Next: scale EPAR parser to 300+ biologics, build EU↔US crosswalk.",
+      "description": "Comprehensive pharma DB with supply chain lens. Phase 6 Complete: 143 MB, 36 tables, 30 views. 34,913 drugs | 9,348 facilities | 3,299 warning letters | 578 SEC disclosures. Comprehensive database with supply chain intelligence.",
       "priority": "high",
-      "status": "in-progress",
+      "status": "done",
       "created": "2026-02-14T10:00:00.000Z",
-      "updated": "2026-02-19T23:15:00.000Z"
+      "updated": "2026-02-20T11:15:00.000Z"
     },
     {
       "id": 1027,
@@ -295,5 +295,5 @@
       "updated": "2026-02-19T23:15:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-19T23:15:00.000Z"
+  "lastUpdated": "2026-02-20T11:15:00.000Z"
 }
