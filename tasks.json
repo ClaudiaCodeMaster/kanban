@@ -293,7 +293,16 @@
       "status": "backlog",
       "created": "2026-02-18T20:00:00.000Z",
       "updated": "2026-02-19T23:15:00.000Z"
+    },
+    {
+      "id": 1033,
+      "title": "Sideline Social",
+      "project": "Business",
+      "description": "Automated e-commerce selling sports mom merchandise via print-on-demand. Midjourney + Listybox + Printify + Etsy/Amazon. Research Complete — Ready for Build.",
+      "priority": "medium",
+      "status": "backlog",
+      "created": "2026-02-21T11:15:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-20T23:15:00.000Z"
+  "lastUpdated": "2026-02-21T11:15:00.000Z"
 }
