@@ -198,7 +198,7 @@
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-06T10:00:00.000Z",
-      "updated": "2026-02-27T23:15:00.000Z"
+      "updated": "2026-02-28T23:15:00.000Z"
     },
     {
       "id": 1023,
@@ -208,7 +208,7 @@
       "priority": "high",
       "status": "done",
       "created": "2026-02-10T18:15:00.000Z",
-      "updated": "2026-02-27T23:15:00.000Z"
+      "updated": "2026-02-28T23:15:00.000Z"
     },
     {
       "id": 1024,
@@ -236,7 +236,7 @@
       "priority": "high",
       "status": "done",
       "created": "2026-02-14T10:00:00.000Z",
-      "updated": "2026-02-27T23:15:00.000Z"
+      "updated": "2026-02-28T23:15:00.000Z"
     },
     {
       "id": 1027,
@@ -246,7 +246,7 @@
       "priority": "high",
       "status": "in-progress",
       "created": "2026-02-14T12:00:00.000Z",
-      "updated": "2026-02-27T23:15:00.000Z"
+      "updated": "2026-02-28T23:15:00.000Z"
     },
     {
       "id": 1028,
@@ -256,7 +256,7 @@
       "priority": "medium",
       "status": "backlog",
       "created": "2026-02-14T14:00:00.000Z",
-      "updated": "2026-02-27T23:15:00.000Z"
+      "updated": "2026-02-28T23:15:00.000Z"
     },
     {
       "id": 1029,
@@ -305,8 +305,8 @@
       "priority": "medium",
       "status": "backlog",
       "created": "2026-02-21T11:15:00.000Z",
-      "updated": "2026-02-27T23:15:00.000Z"
+      "updated": "2026-02-28T23:15:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-28T11:15:00.000Z"
+  "lastUpdated": "2026-02-28T23:15:00.000Z"
 }
